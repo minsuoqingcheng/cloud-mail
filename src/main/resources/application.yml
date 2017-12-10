@@ -1,0 +1,50 @@
+############################# mail proper config #############################
+email:
+  name: 荣老师
+  from: 3132836373@qq.com
+  password: lxlqxpjamlzxdfdg
+  hostName: smtp.qq.com
+  port: 465
+  SSL: true
+  charSet: UTF-8
+
+
+############################# spring data mongo config #############################
+spring:
+  data:
+    mongodb:
+      #authentication-database: audit # Authentication database name.
+      database: mail # Database name.
+      field-naming-strategy: # Fully qualified name of the FieldNamingStrategy to use.
+      #grid-fs-database: # GridFS database name.
+      #password: root123 # Login password of the mongo server.
+      repositories.enabled: true # Enable Mongo repositories.
+      #db.username: test
+      host: 127.0.0.1
+      port: 27017 # Login user of the mongo server.
+
+
+################# ribbon & hystrix Config ###################
+ribbon:
+  ReadTimeout: 10000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 10000
+---
+spring:
+  profiles: default
+
+
+logging:
+  file: ./cloud-mail.log
+logging.level.org.springframework.web: INFO
+
+
+
+
