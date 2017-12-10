@@ -1,1 +1,1 @@
-cloud-mail
+基于spring cloud的邮件服务
